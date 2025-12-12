@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Магазин одежды — учет товаров</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <div>
+        <h1>Магазин одежды</h1>
+        <p class="subtitle">Учет товаров: добавление, редактирование, фильтрация, статусы</p>
+      </div>
+      <div class="badge">SPA • MVP • Components</div>
+    </header>
+
+    <main class="grid">
+      <!-- Левая колонка: форма + фильтры -->
+      <aside class="panel">
+        <section class="card">
+          <h2 class="card-title">Добавить товар</h2>
+
+          <form id="product-form" class="form">
+            <label class="field">
+              <span>Название</span>
+              <input id="product-title" type="text" placeholder="Например, Худи Oversize" required />
+            </label>
+
+            <label class="field">
+              <span>Категория</span>
+              <select id="product-category" required>
+                <option value="tshirt">Футболка</option>
+                <option value="hoodie">Худи</option>
+                <option value="jeans">Джинсы</option>
+                <option value="jacket">Куртка</option>
+                <option value="shoes">Обувь</option>
+              </select>
+            </label>
+
+            <label class="field row">
+              <span>В наличии</span>
+              <label class="switch">
+                <input type="checkbox" id="product-instock" checked />
+                <span class="slider"></span>
+              </label>
+            </label>
+
+            <button class="btn primary" type="submit">Добавить</button>
+          </form>
+        </section>
+
+        <section class="card">
+          <h2 class="card-title">Фильтры</h2>
+
+          <fieldset class="fieldset">
+            <legend>Статус</legend>
+            <label class="radio">
+              <input type="radio" name="stock-filter" value="all" checked />
+              <span>Все</span>
+            </label>
+            <label class="radio">
+              <input type="radio" name="stock-filter" value="in" />
+              <span>В наличии</span>
+            </label>
+            <label class="radio">
+              <input type="radio" name="stock-filter" value="out" />
+              <span>Нет в наличии</span>
+            </label>
+          </fieldset>
+
+          <label class="field">
+            <span>Категория</span>
+            <select id="category-filter">
+              <option value="all">Все категории</option>
+              <option value="tshirt">Футболка</option>
+              <option value="hoodie">Худи</option>
+              <option value="jeans">Джинсы</option>
+              <option value="jacket">Куртка</option>
+              <option value="shoes">Обувь</option>
+            </select>
+          </label>
+
+          <label class="field">
+            <span>Поиск по названию</span>
+            <input id="search-filter" type="text" placeholder="Введите часть названия..." />
+          </label>
+
+         
+        </section>
+      </aside>
+
+    
+      <section class="content">
+        <div class="content-head">
+          <h2>Список товаров</h2>
+          <div class="meta">
+            <span id="counter">0 товаров</span>
+          </div>
+        </div>
+
+        <div id="product-list" class="cards">
+         
+        </div>
+
+           </section>
+    </main>
+
+    <footer class="footer">
+     
+    </footer>
+  </div>
+
+ 
+</body>
+</html>

@@ -1,0 +1,586 @@
+/* Base */
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  background: #f6f7fb;
+  color: #1f2937;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 24px auto;
+  padding: 0 16px 24px;
+}
+
+/* Header */
+.header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 18px 18px;
+  border-radius: 14px;
+  background: white;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.06);
+}
+
+h1 { margin: 0 0 6px; font-size: 28px; }
+.subtitle { margin: 0; color: #6b7280; }
+
+.badge {
+  padding: 8px 10px;
+  border-radius: 999px;
+  background: #eef2ff;
+  color: #3730a3;
+  font-weight: 600;
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+/* Layout */
+.grid {
+  display: grid;
+  grid-template-columns: 360px 1fr;
+  gap: 16px;
+  margin-top: 16px;
+}
+
+@media (max-width: 900px) {
+  .grid { grid-template-columns: 1fr; }
+}
+
+/* Cards / Panels */
+.panel { display: flex; flex-direction: column; gap: 16px; }
+
+.card {
+  background: white;
+  border-radius: 14px;
+  padding: 16px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.06);
+}
+
+.card-title {
+  margin: 0 0 12px;
+  font-size: 18px;
+}
+
+/* Form */
+.form { display: flex; flex-direction: column; gap: 12px; }
+
+.field { display: flex; flex-direction: column; gap: 6px; }
+.field > span { font-size: 13px; color: #4b5563; }
+
+.field input, .field select {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  outline: none;
+  background: #fff;
+}
+
+.field input:focus, .field select:focus {
+  border-color: #c7d2fe;
+  box-shadow: 0 0 0 3px rgba(99,102,241,0.15);
+}
+
+.field.row {
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Buttons */
+.btn {
+  border: 1px solid #e5e7eb;
+  background: #fff;
+  padding: 9px 12px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.btn:hover { background: #f9fafb; }
+
+.btn.primary {
+  border-color: transparent;
+  background: #4f46e5;
+  color: #fff;
+}
+
+.btn.primary:hover { background: #4338ca; }
+
+.btn.danger {
+  border-color: transparent;
+  background: #ef4444;
+  color: #fff;
+}
+
+.btn.danger:hover { background: #dc2626; }
+
+.row-actions { display: flex; gap: 10px; }
+
+/* Fieldset / radios */
+.fieldset {
+  border: 1px dashed #e5e7eb;
+  border-radius: 12px;
+  padding: 10px 12px 12px;
+  margin: 0 0 12px;
+}
+
+.fieldset legend {
+  padding: 0 6px;
+  color: #6b7280;
+  font-size: 12px;
+}
+
+.radio { display: flex; align-items: center; gap: 8px; margin-top: 8px; }
+.radio input { accent-color: #4f46e5; }
+
+/* Toggle switch */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 44px;
+  height: 24px;
+}
+.switch input { opacity: 0; width: 0; height: 0; }
+.slider {
+  position: absolute;
+  inset: 0;
+  cursor: pointer;
+  background: #e5e7eb;
+  transition: 0.2s;
+  border-radius: 999px;
+}
+.slider:before {
+  content: "";
+  position: absolute;
+  height: 18px;
+  width: 18px;
+  left: 3px;
+  top: 3px;
+  background: #fff;
+  transition: 0.2s;
+  border-radius: 50%;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+}
+.switch input:checked + .slider { background: #4f46e5; }
+.switch input:checked + .slider:before { transform: translateX(20px); }
+
+/* Content */
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.content-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px 16px;
+  border-radius: 14px;
+  background: white;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.06);
+}
+
+.content-head h2 { margin: 0; font-size: 20px; }
+
+.meta {
+  color: #6b7280;
+  font-size: 13px;
+}
+
+/* Product cards */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(220px, 1fr));
+  gap: 12px;
+}
+
+@media (max-width: 1100px) {
+  .cards { grid-template-columns: repeat(2, minmax(220px, 1fr)); }
+}
+@media (max-width: 650px) {
+  .cards { grid-template-columns: 1fr; }
+}
+
+.product-card {
+  background: white;
+  border-radius: 14px;
+  padding: 14px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.06);
+  border: 1px solid #eef2f7;
+}
+
+.product-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  align-items: flex-start;
+}
+
+.product-title {
+  margin: 0;
+  font-size: 16px;
+}
+
+.status {
+  font-size: 12px;
+  font-weight: 700;
+  padding: 6px 8px;
+  border-radius: 999px;
+  background: #f3f4f6;
+  color: #374151;
+  white-space: nowrap;
+}
+
+.product-card.in-stock .status {
+  background: #ecfdf5;
+  color: #065f46;
+}
+
+.product-card.out-stock .status {
+  background: #fef2f2;
+  color: #991b1b;
+}
+
+.product-info { margin-top: 10px; display: flex; gap: 8px; flex-wrap: wrap; }
+
+.chip {
+  font-size: 12px;
+  padding: 6px 8px;
+  border-radius: 999px;
+  background: #eef2ff;
+  color: #3730a3;
+}
+
+.actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+  flex-wrap: wrap;
+}
+
+/* Edit panel */
+.edit-card { border: 1px solid #c7d2fe; }
+
+/* Footer */
+.footer {
+  margin-top: 16px;
+  color: #6b7280;
+  font-size: 13px;
+  padding: 0 6px;
+}
+
+.hint {
+  margin-top: 8px;
+  font-size: 12px;
+  color: #6b7280;
+}
+
+.container {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+}
+
+.left-panel {
+    width: 300px;
+    flex-shrink: 0;
+}
+
+.right-panel {
+    flex-grow: 1;
+}
+
+.card {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+}
+
+.items-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.item-card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15px;
+    background: white;
+}
+
+.item-card.in-stock {
+    border-left: 4px solid #4CAF50;
+}
+
+.item-card.out-stock {
+    border-left: 4px solid #f44336;
+}
+
+.btn {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 5px;
+}
+
+.btn-primary {
+    background: #2196F3;
+    color: white;
+}
+
+.btn-edit {
+    background: #FFC107;
+}
+
+.btn-delete {
+    background: #f44336;
+    color: white;
+}
+/* Статусы */
+.item-card.in-stock {
+    border-left: 4px solid #10b981;
+    background: linear-gradient(to right, #f0fdf4, white);
+}
+
+.item-card.out-stock {
+    border-left: 4px solid #ef4444;
+    background: linear-gradient(to right, #fef2f2, white);
+}
+
+.item-status {
+    font-weight: 600;
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 12px;
+}
+
+.item-status.in-stock {
+    background: #d1fae5;
+    color: #065f46;
+}
+
+.item-status.out-stock {
+    background: #fee2e2;
+    color: #991b1b;
+}
+
+/* Кнопки смены статуса */
+.btn-toggle {
+    background: #3b82f6;
+    color: white;
+    flex: 1;
+}
+
+.btn-toggle:hover {
+    background: #2563eb;
+}
+
+/* Фильтры */
+.filter-group {
+    margin-bottom: 15px;
+}
+
+.filter-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+    color: #374151;
+}
+
+.filter-options {
+    display: flex;
+    gap: 15px;
+    margin-top: 5px;
+}
+
+.filter-options label {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-weight: normal;
+    cursor: pointer;
+}
+
+/* ========== МОДАЛЬНОЕ ОКНО ========== */
+.modal-overlay {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    background: rgba(0, 0, 0, 0.7) !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    z-index: 9999 !important;
+    padding: 20px;
+}
+
+.modal-content {
+    background: white;
+    border-radius: 12px;
+    padding: 30px;
+    width: 100%;
+    max-width: 500px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+    position: relative;
+    z-index: 10000;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #e5e7eb;
+}
+
+.modal-header h3 {
+    margin: 0;
+    color: #1f2937;
+    font-size: 22px;
+}
+
+.modal-close-btn {
+    background: none;
+    border: none;
+    font-size: 32px;
+    cursor: pointer;
+    color: #6b7280;
+    padding: 0;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: all 0.2s;
+    line-height: 1;
+}
+
+.modal-close-btn:hover {
+    background-color: #f3f4f6;
+    color: #374151;
+}
+
+.modal-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.modal-form .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.modal-form label {
+    font-weight: 600;
+    color: #374151;
+    font-size: 14px;
+}
+
+.modal-form input[type="text"],
+.modal-form select {
+    padding: 12px 15px;
+    border: 2px solid #d1d5db;
+    border-radius: 8px;
+    font-size: 16px;
+    width: 100%;
+    box-sizing: border-box;
+    transition: border-color 0.2s;
+}
+
+.modal-form input[type="text"]:focus,
+.modal-form select:focus {
+    outline: none;
+    border-color: #4f46e5;
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    font-weight: normal;
+    user-select: none;
+}
+
+.checkbox-label input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    accent-color: #4f46e5;
+}
+
+.modal-buttons {
+    display: flex;
+    gap: 15px;
+    margin-top: 25px;
+    justify-content: flex-end;
+}
+
+.modal-buttons .btn {
+    padding: 12px 24px;
+    font-size: 16px;
+    min-width: 100px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.2s;
+}
+
+.modal-buttons .btn-primary {
+    background: #4f46e5;
+    color: white;
+}
+
+.modal-buttons .btn-primary:hover {
+    background: #4338ca;
+}
+
+.modal-buttons .btn-secondary {
+    background: #6b7280;
+    color: white;
+}
+
+.modal-buttons .btn-secondary:hover {
+    background: #4b5563;
+}
+
+/* Анимация */
+@keyframes modalFadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.modal-overlay {
+    animation: modalFadeIn 0.3s ease-out;
+}
+
+/* Блокировка прокрутки при открытом модальном окне */
+body.modal-open {
+    overflow: hidden !important;
+}
